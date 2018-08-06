@@ -1,0 +1,34 @@
+server:
+  port: 8083
+  context-path: /admin
+spring:
+  liquibase:
+    enabled: false
+  #出现错误时, 直接抛出异常
+  mvc:
+    throw-exception-if-no-handler-found: true
+  #不要为我们工程中的资源文件建立映射
+  resources:
+    add-mappings: false
+  redis:
+    host: localhost
+    password: wangqy@1
+    port: 6379
+    pool:
+      max-idle: 8
+      min-idle: 0
+      max-active: 8
+      max-wait: -1
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true&useSSL=false
+    username: root
+    password: Wangqy@1
+  jackson:
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+mybatis:
+  type-aliases-package: com.octopus.affiliate.model
+  configuration:
+    map-underscore-to-camel-case: true
